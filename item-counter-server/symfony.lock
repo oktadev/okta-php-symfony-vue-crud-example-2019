@@ -1,4 +1,7 @@
 {
+    "clue/stream-filter": {
+        "version": "v1.4.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -78,8 +81,17 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "firebase/php-jwt": {
+        "version": "v5.0.0"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.5.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "kylekatarnls/update-helper": {
+        "version": "1.1.1"
     },
     "nelmio/cors-bundle": {
         "version": "1.5",
@@ -93,6 +105,9 @@
             "config/packages/nelmio_cors.yaml"
         ]
     },
+    "nesbot/carbon": {
+        "version": "1.38.4"
+    },
     "nikic/php-parser": {
         "version": "v4.2.2"
     },
@@ -102,14 +117,44 @@
     "ocramius/proxy-manager": {
         "version": "2.2.2"
     },
+    "okta/jwt-verifier": {
+        "version": "0.2.1"
+    },
+    "php-http/client-common": {
+        "version": "1.9.1"
+    },
+    "php-http/curl-client": {
+        "version": "v1.7.1"
+    },
+    "php-http/discovery": {
+        "version": "1.6.1"
+    },
+    "php-http/httplug": {
+        "version": "v1.1.0"
+    },
+    "php-http/message": {
+        "version": "1.7.2"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
+    "php-http/promise": {
+        "version": "v1.0.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.1.0"
+    },
+    "ralouphie/getallheaders": {
+        "version": "2.0.5"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
@@ -218,6 +263,9 @@
     "symfony/mime": {
         "version": "v4.3.1"
     },
+    "symfony/options-resolver": {
+        "version": "v4.3.1"
+    },
     "symfony/orm-pack": {
         "version": "v1.0.6"
     },
@@ -253,6 +301,22 @@
     },
     "symfony/stopwatch": {
         "version": "v4.3.1"
+    },
+    "symfony/translation": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "2ad9d2545bce8ca1a863e50e92141f0b9d87ffcd"
+        },
+        "files": [
+            "config/packages/translation.yaml",
+            "translations/.gitignore"
+        ]
+    },
+    "symfony/translation-contracts": {
+        "version": "v1.1.5"
     },
     "symfony/var-exporter": {
         "version": "v4.3.1"
