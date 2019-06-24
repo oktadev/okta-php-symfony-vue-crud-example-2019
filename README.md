@@ -59,10 +59,9 @@ Loading [127.0.0.1:8000](127.0.0.1:8000) now should show the default Symfony 4 p
 Edit the Okta configuration in `src/main.js` to fill in your client ID and other application details. (Refer to the [accompanying blog post](https://developer.okta.com/blog/...) for more details.) Then install the dependencies and run the server:
 
 ```
-cd item-counter-client-vue
-npm install -g @vue/cli
+cd item-counter-client
 yarn
-yarn serve
+yarn run serve
 ```
 
 Loading [127.0.0.1:8080](127.0.0.1:8080) now should show you the application.
