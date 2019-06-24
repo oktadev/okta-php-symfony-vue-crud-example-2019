@@ -13,7 +13,6 @@ class ApiController
 
     /**
      * Gets the value of statusCode.
-     
      * @return integer
      */
     public function getStatusCode()
@@ -23,9 +22,7 @@ class ApiController
 
     /**
      * Sets the value of statusCode.
-     
      * @param integer $statusCode the status code
-     
      * @return self
      */
     protected function setStatusCode($statusCode)
@@ -37,10 +34,8 @@ class ApiController
 
     /**
      * Returns a JSON response
-     
      * @param array $data
      * @param array $headers
-     
      * @return Symfony\Component\HttpFoundation\JsonResponse
      */
     public function respond($data, $headers = [])
@@ -50,9 +45,7 @@ class ApiController
 
     /**
      * Sets an error message and returns a JSON response
-     
      * @param string $errors
-     
      * @return Symfony\Component\HttpFoundation\JsonResponse
      */
     public function respondWithErrors($errors, $headers = [])
@@ -66,9 +59,7 @@ class ApiController
 
     /**
      * Returns a 401 Unauthorized http response
-     
      * @param string $message
-     
      * @return Symfony\Component\HttpFoundation\JsonResponse
      */
     public function respondUnauthorized($message = 'Not authorized!')
