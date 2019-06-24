@@ -30,14 +30,19 @@ GRANT ALL on item_counter.* to item_counter@127.0.0.1 identified by 'item_counte
 quit
 ```
 
-Copy the `.env` file:
+Create a `.env.local` file:
 
 ```
 cd item-counter-server
-cp .env.dist .env
+touch .env.local
 ```
 
-Edit the database credentials and Okta credentials in the .env file with your own.
+Enter your database credentials and Okta credentials in the .env file:
+```
+DATABASE_URL=mysql://item_counter:item_counter@127.0.0.1:3306/item_counter
+OKTA_CLIENT_ID=<PUT YOUR OKTA CLIENT ID>
+OKTA_URL=<PUT YOUR OKTA URL>
+```
 
 Install the project dependencies, run the migrations and then start the server:
 
