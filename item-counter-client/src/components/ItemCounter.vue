@@ -8,6 +8,7 @@
                     <th>ID</th>
                     <th>Item Title</th>
                     <th>Count</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,6 +17,10 @@
                         <td>{{ item.id }}</td>
                         <td>{{ item.title }}</td>
                         <td>{{ item.count }}</td>
+                        <td>
+                            <button class="button is-primary" v-bind:class="{ 'is-loading' : isCountUpdating(item.id) }" @click="increaseCount(item)">Increase</button>&nbsp;
+                            <button class="button is-primary" v-bind:class="{ 'is-loading' : isDeleting(item.id) }" @click="deleteItemCounter(item.id)">Delete</button>
+                        </td>
                     </tr>
                 </template>
             </tbody>
@@ -27,6 +32,7 @@
 
 <script>
 import axios from 'axios'
+import Vue from 'vue'
 import ItemCounterForm from './ItemCounterForm.vue'
 import { API_BASE_URL } from '../config'
 
@@ -54,6 +60,32 @@ export default {
     methods: {
         addItemCounter(item) {
             this.items.push(item)
+        },
+        isCountUpdating(id) {
+            return this.countUpdatingTable[id]
+        },
+        async increaseCount(item) {
+            axios.defaults.headers.common['Authorization'] = `Bearer ${await this.$auth.getAccessToken()}`
+            Vue.set(this.countUpdatingTable, item.id, true)
+            axios.post(API_BASE_URL + '/items/' + item.id + '/count')
+                .then(response => {
+                    item.count = response.data.count
+                    this.countUpdatingTable[item.id] = false
+                })
+                .catch(() => {
+                    // handle authentication and validation errors here
+                    this.countUpdatingTable[item.id] = false
+                })
+        },
+        isDeleting(id) {
+            let index = this.items.findIndex(item => item.id === id)
+            return this.items[index].isDeleting
+        },
+        async deleteItemCounter(id) {
+            let index = this.items.findIndex(item => item.id === id)
+            Vue.set(this.items[index], 'isDeleting', true)
+            await axios.delete(API_BASE_URL + '/items/' + id)
+            this.items.splice(index, 1)
         }
     }
 }
