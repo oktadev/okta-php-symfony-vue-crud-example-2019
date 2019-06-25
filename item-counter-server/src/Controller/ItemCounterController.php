@@ -15,6 +15,10 @@ class ItemCounterController extends ApiController
     */
     public function index(ItemCounterRepository $itemCounterRepository)
     {
+        if (! $this->isAuthorized()) {
+            return $this->respondUnauthorized();
+        }
+
         $items = $itemCounterRepository->transformAll();
 
         return $this->respond($items);
@@ -25,6 +29,10 @@ class ItemCounterController extends ApiController
     */
     public function create(Request $request, ItemCounterRepository $itemCounterRepository, EntityManagerInterface $em)
     {
+        if (! $this->isAuthorized()) {
+            return $this->respondUnauthorized();
+        }
+
         $request = $this->transformJsonBody($request);
 
         if (! $request) {
@@ -51,6 +59,10 @@ class ItemCounterController extends ApiController
     */
     public function increaseCount($id, EntityManagerInterface $em, ItemCounterRepository $itemCounterRepository)
     {
+        if (! $this->isAuthorized()) {
+            return $this->respondUnauthorized();
+        }
+
         $itemCounter = $itemCounterRepository->find($id);
 
         if (! $itemCounter) {
@@ -71,6 +83,10 @@ class ItemCounterController extends ApiController
     */
     public function delete($id, EntityManagerInterface $em, ItemCounterRepository $itemCounterRepository)
     {
+        if (! $this->isAuthorized()) {
+            return $this->respondUnauthorized();
+        }
+
         $itemCounter = $itemCounterRepository->find($id);
 
         if (! $itemCounter) {
