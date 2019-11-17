@@ -97,7 +97,7 @@ class ApiController
         return $this->setStatusCode(201)->respond($data);
     }
 
-    // this method allows us to accept JSON payloads in POST requests 
+    // this method allows us to accept JSON payloads in POST requests
     // since Symfony 4 doesn’t handle that automatically:
     protected function transformJsonBody(\Symfony\Component\HttpFoundation\Request $request)
     {
@@ -144,7 +144,7 @@ class ApiController
             $jwtVerifier = (new \Okta\JwtVerifier\JwtVerifierBuilder())
                             ->setAudience('api://default')
                             ->setClientId($_ENV['OKTA_CLIENT_ID'])
-                            ->setIssuer($_ENV['OKTA_URL'] . '/oauth2/default')
+                            ->setIssuer($_ENV['OKTA_ISSUER'])
                             ->build();
 
             // Verify the JWT from the Authorization Header.

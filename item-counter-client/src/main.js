@@ -9,15 +9,15 @@ import ItemCounter from './components/ItemCounter.vue'
 import Auth from '@okta/okta-vue'
 
 Vue.use(Auth, {
-  issuer: 'https://dev-354685.oktapreview.com/oauth2/default',
-  client_id: '0oalsm9qsj3xPnVxM0h7',
-  redirect_uri: 'http://localhost:8080/implicit/callback',
+  issuer: 'YOUR OKTA ISSUER URL',
+  client_id: 'YOUR OKTA CLIENT ID',
+  redirect_uri: 'http://localhost:8080/callback',
   scope: 'openid profile email',
   pkce: true
 })
 
 const routes = [
-  { path: '/implicit/callback', component: Auth.handleCallback() },
+  { path: '/callback', component: Auth.handleCallback() },
   { path: '/counter', component: ItemCounter }
 ]
 
