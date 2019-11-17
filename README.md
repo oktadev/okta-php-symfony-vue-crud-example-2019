@@ -15,7 +15,7 @@ Sign up for an [Okta developer account](https://developer.okta.com) and create a
 Clone this project using the following commands:
 
 ```
-git clone git@github.com:oktadeveloper/...
+git clone git@github.com:oktadeveloper/okta-php-symfony-vue-crud-example-2019
 cd ...
 ```
 
@@ -40,8 +40,8 @@ touch .env.local
 Enter your database credentials and Okta credentials in the .env file:
 ```
 DATABASE_URL=mysql://item_counter:item_counter@127.0.0.1:3306/item_counter
-OKTA_CLIENT_ID=<PUT YOUR OKTA CLIENT ID>
-OKTA_URL=<PUT YOUR OKTA URL>
+OKTA_CLIENT_ID=<ENTER YOUR OKTA CLIENT ID>
+OKTA_URL=<ENTER YOUR OKTA ISSUER URL>
 ```
 
 Install the project dependencies, run the migrations and then start the server:
